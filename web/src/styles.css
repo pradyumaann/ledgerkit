@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/*
+  Design tokens.
+
+  The visual language is adapted from the Mercury analysis in the awesome-design-md
+  collection: a pale canvas framed by a night-coloured navigation panel, one indigo
+  action colour, tonal cards instead of borders and shadows, pill-shaped actions and
+  light type weights. Geist stands in for Mercury's proprietary typeface.
+
+  Shape rule: actions are pills, containers are 14-20px, inputs are 10px.
+*/
+
+:root {
+  color-scheme: light;
+  --canvas: #efeef6;
+  --surface: #f9f9fd;
+  --tint: #f0eff8;
+  --lavender: #e2e0f5;
+  --ink: #28253b;
+  --ink-2: #514b74;
+  --ink-3: #676283;
+  --line: rgb(40 37 59 / 0.09);
+  --wash: rgb(40 37 59 / 0.045);
+  --primary: #5266eb;
+  --primary-ink: #3f51c9;
+  --primary-wash: rgb(82 102 235 / 0.1);
+  --on-primary: #ffffff;
+  --panel: #e5e3f1;
+  --panel-raised: #f9f9fd;
+  --on-panel: #28253b;
+  --on-panel-2: #5a5578;
+  --panel-glow: none;
+  --shadow: 0 1px 2px rgb(40 37 59 / 0.04), 0 12px 32px -12px rgb(40 37 59 / 0.12);
+  --card-shadow: 0 1px 1px rgb(40 37 59 / 0.03), 0 10px 28px -18px rgb(40 37 59 / 0.18);
+  --highlight: inset 0 1px 0 rgb(255 255 255 / 0.7);
+  --glow: transparent;
+
+  /* Status marks. Text never takes these; they colour an icon beside a label. */
+  --good: #0ca30c;
+  --warning: #d9940a;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  /* Chart series, validated for colour-vision separation against --surface. */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --grid: #e3e2ee;
+  --axis: #c3c1d4;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #171721;
+  --surface: #1e1e2a;
+  --tint: #252533;
+  --lavender: #2a2a3d;
+  --ink: #ededf3;
+  --ink-2: #c3c3cc;
+  --ink-3: #9a9aab;
+  --line: rgb(237 237 243 / 0.1);
+  --wash: rgb(237 237 243 / 0.05);
+  --primary: #5266eb;
+  --primary-ink: #9cb4e8;
+  --primary-wash: rgb(156 180 232 / 0.16);
+  --panel: #101017;
+  --panel-raised: #1e1e2a;
+  --on-panel: #ededf3;
+  --on-panel-2: #a9a9b8;
+  --panel-glow: radial-gradient(120% 45% at 0% 0%, rgb(82 102 235 / 0.22), transparent 70%);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.6);
+  --card-shadow: 0 1px 1px rgb(0 0 0 / 0.2), 0 12px 32px -18px rgb(0 0 0 / 0.7);
+  --highlight: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  --glow: rgb(82 102 235 / 0.12);
+
+  --warning: #fab219;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --grid: #2b2b3a;
+  --axis: #3d3d50;
+}
+
+/*
+  The dashboard's lead panel. In the light theme it is an ordinary card. In the dark
+  theme it becomes a deeper night surface with a soft glow, restating the tokens its
+  contents use so text, charts and controls inside it adapt on their own.
+*/
+.night {
+  background: var(--surface);
+}
+
+:root[data-theme="dark"] .night {
+  color-scheme: dark;
+  --surface: #1a1a25;
+  --ink: #ededf3;
+  --ink-2: #c3c3cc;
+  --ink-3: #9a9aab;
+  --line: rgb(237 237 243 / 0.1);
+  --wash: rgb(237 237 243 / 0.07);
+  --primary-ink: #9cb4e8;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.6);
+  --highlight: inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --warning: #fab219;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --grid: #2b2b3a;
+  --axis: #3d3d50;
+  color: var(--ink);
+  background:
+    radial-gradient(90% 70% at 0% 0%, rgb(82 102 235 / 0.3), transparent 60%),
+    radial-gradient(70% 60% at 100% 0%, rgb(156 180 232 / 0.1), transparent 65%),
+    #1a1a25;
+}
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-tint: var(--tint);
+  --color-lavender: var(--lavender);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-wash: var(--wash);
+  --color-primary: var(--primary);
+  --color-primary-ink: var(--primary-ink);
+  --color-primary-wash: var(--primary-wash);
+  --color-on-primary: var(--on-primary);
+  --color-panel: var(--panel);
+  --color-panel-raised: var(--panel-raised);
+  --color-on-panel: var(--on-panel);
+  --color-on-panel-2: var(--on-panel-2);
+  --color-good: var(--good);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+
+  --shadow-float: var(--shadow);
+  --shadow-card: var(--card-shadow), var(--highlight);
+  --ease-out-soft: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --animate-rise: rise 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+  --animate-fade: fade 0.2s cubic-bezier(0.32, 0.72, 0, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    min-height: 100dvh;
+  }
+  /* A faint wash of the action colour behind the page, fixed so it never repaints on scroll. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(60% 50% at 85% 0%, var(--glow), transparent 70%);
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 450;
+    letter-spacing: -0.005em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--primary-wash);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Children rise into place one after another when a screen opens. */
+@utility stagger {
+  & > * {
+    animation: rise 0.6s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+  & > *:nth-child(2) {
+    animation-delay: 60ms;
+  }
+  & > *:nth-child(3) {
+    animation-delay: 120ms;
+  }
+  & > *:nth-child(4) {
+    animation-delay: 180ms;
+  }
+  & > *:nth-child(n + 5) {
+    animation-delay: 240ms;
+  }
+}
+
+/* Columns of figures align; standalone figures keep proportional digits. */
+@utility figures {
+  font-variant-numeric: tabular-nums;
+}
