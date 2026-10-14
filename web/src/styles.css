@@ -74,6 +74,7 @@
   --glow: rgb(82 102 235 / 0.12);
 
   --warning: #fab219;
+  --critical: #f07070;
   --series-1: #3987e5;
   --series-2: #d95926;
   --grid: #2b2b3a;
@@ -101,6 +102,7 @@
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 40px -16px rgb(0 0 0 / 0.6);
   --highlight: inset 0 1px 0 rgb(255 255 255 / 0.06);
   --warning: #fab219;
+  --critical: #f07070;
   --series-1: #3987e5;
   --series-2: #d95926;
   --grid: #2b2b3a;

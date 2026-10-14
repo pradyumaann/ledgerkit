@@ -249,9 +249,11 @@ export function InvoiceForm({ kind }: { kind: FormKind }) {
             </Button>
             <p className="text-ink-2">
               Subtotal before tax{" "}
-              <span className="figures ml-2 text-[16px] font-medium text-ink">
-                {subtotal === null ? "Check the quantities and prices" : formatMoney(subtotal, currency)}
-              </span>
+              {subtotal === null ? (
+                <span className="ml-2 text-ink-3">appears once each line has a quantity and price</span>
+              ) : (
+                <span className="figures ml-2 text-[16px] font-medium text-ink">{formatMoney(subtotal, currency)}</span>
+              )}
             </p>
           </div>
         </div>

@@ -56,7 +56,7 @@ export function InvoiceList({ kind }: { kind: DocKind }) {
   const rows = list.data?.invoices.filter((invoice) => matches(invoice, filter));
 
   const columns: Column<InvoiceSummary>[] = [
-    { id: "number", header: "Number", cell: (row) => <span className="font-medium text-ink">{row.number}</span> },
+    { id: "number", header: "Number", cell: (row) => <span className="whitespace-nowrap font-medium text-ink">{row.number}</span> },
     {
       id: "party",
       header: config.party,

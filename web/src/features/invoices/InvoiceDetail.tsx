@@ -179,7 +179,7 @@ export function InvoiceDetail({ kind }: { kind: DocKind }) {
         </p>
       )}
 
-      <div className="grid items-start gap-4 lg:grid-cols-12">
+      <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-12">
         <Card className="lg:col-span-8">
           <div className="overflow-x-auto">
             <table className="w-full">

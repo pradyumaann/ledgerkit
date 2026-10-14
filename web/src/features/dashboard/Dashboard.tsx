@@ -202,7 +202,7 @@ export function Dashboard() {
         </Link>
       )}
 
-      <div className={cx("grid gap-4 lg:grid-cols-12", statement.isPlaceholderData && "opacity-60 transition-opacity")}>
+      <div className={cx("grid grid-cols-1 gap-4 lg:grid-cols-12", statement.isPlaceholderData && "opacity-60 transition-opacity")}>
         <Card className="lg:col-span-8" tone="night">
           <div className="flex h-full flex-col">
           <div className="flex flex-wrap items-start justify-between gap-4 px-6 pt-6">
@@ -318,7 +318,7 @@ export function Dashboard() {
         />
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
         <Card className="lg:col-span-7">
           <CardHeader
             title="Customers by gross margin"

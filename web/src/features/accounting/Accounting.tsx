@@ -266,7 +266,7 @@ export function Journal() {
   });
 
   const columns: Column<EntrySummary>[] = [
-    { id: "number", header: "Number", cell: (row) => <span className="font-medium text-ink">{row.number}</span> },
+    { id: "number", header: "Number", cell: (row) => <span className="whitespace-nowrap font-medium text-ink">{row.number}</span> },
     { id: "date", header: "Date", cell: (row) => <span className="whitespace-nowrap text-ink-2">{formatDate(row.entry_date)}</span> },
     { id: "memo", header: "Memo", className: "min-w-56", cell: (row) => row.memo },
     {

@@ -30,7 +30,7 @@ export function Field({
       {children(id)}
       {hint && !error && <p className="text-[12.5px] text-ink-3">{hint}</p>}
       {error && (
-        <p className="text-[12.5px] text-ink" role="alert">
+        <p className="text-[12.5px] text-critical" role="alert">
           {error}
         </p>
       )}

@@ -170,7 +170,7 @@ export function PartyDetail({ role }: { role: Role }) {
   const owed = role === "customer" ? data?.receivable : data?.payable;
 
   const columns: Column<InvoiceSummary>[] = [
-    { id: "number", header: "Number", cell: (row) => <span className="font-medium text-ink">{row.number}</span> },
+    { id: "number", header: "Number", cell: (row) => <span className="whitespace-nowrap font-medium text-ink">{row.number}</span> },
     { id: "date", header: "Date", cell: (row) => <span className="text-ink-2">{formatDate(row.invoice_date)}</span> },
     { id: "status", header: "Status", cell: (row) => <StatusBadge status={displayStatus(row)} /> },
     { id: "total", header: "Total", numeric: true, cell: (row) => formatMoney(row.total, currency) },
@@ -181,7 +181,7 @@ export function PartyDetail({ role }: { role: Role }) {
     <div className="stagger space-y-6">
       {back}
       <PageHeader title={data?.name ?? " "} description={data?.email ?? undefined} />
-      <div className="grid items-start gap-4 lg:grid-cols-12">
+      <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-12">
         <div className="space-y-4 lg:col-span-4">
           <Card tone="lavender">
             <div className="p-5">

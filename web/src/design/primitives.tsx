@@ -233,7 +233,7 @@ export function PageHeader({ title, description, actions }: { title: string; des
         <h1 className="text-[30px] leading-tight text-ink">{title}</h1>
         {description && <p className="mt-1 max-w-[65ch] text-ink-2">{description}</p>}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+      {actions && <div className="flex min-w-0 max-w-full flex-wrap items-center gap-2">{actions}</div>}
     </header>
   );
 }
@@ -250,7 +250,7 @@ export function Segmented<T extends string>({
   label: string;
 }) {
   return (
-    <div role="group" aria-label={label} className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full bg-wash p-1">
+    <div role="group" aria-label={label} className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full bg-wash p-1 [scrollbar-width:none]">
       {options.map((option) => (
         <button
           key={option.id}

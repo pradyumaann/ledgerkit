@@ -74,7 +74,7 @@ export function Payments() {
   ];
 
   const columns: Column<Payment>[] = [
-    { id: "number", header: "Number", cell: (row) => <span className="font-medium text-ink">{row.number}</span> },
+    { id: "number", header: "Number", cell: (row) => <span className="whitespace-nowrap font-medium text-ink">{row.number}</span> },
     {
       id: "party",
       header: "Party",

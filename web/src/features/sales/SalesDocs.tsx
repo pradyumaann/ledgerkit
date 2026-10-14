@@ -56,7 +56,7 @@ export function SalesDocList({ kind }: { kind: "quotation" | "order" }) {
   });
 
   const columns: Column<SalesDoc>[] = [
-    { id: "number", header: "Number", cell: (row) => <span className="font-medium text-ink">{row.number}</span> },
+    { id: "number", header: "Number", cell: (row) => <span className="whitespace-nowrap font-medium text-ink">{row.number}</span> },
     {
       id: "party",
       header: "Customer",

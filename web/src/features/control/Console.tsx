@@ -132,7 +132,7 @@ export function Console() {
       {tools.error ? (
         <ErrorState message={tools.error.message} onRetry={() => void tools.refetch()} />
       ) : (
-        <div className="grid items-start gap-4 lg:grid-cols-12">
+        <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-12">
           <Card className="lg:col-span-4">
             <div className="p-3">
               <div className="relative">
