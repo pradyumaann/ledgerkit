@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.env
+*.db
+*.db-journal
+
+# Built web interface and frontend dependencies
+src/ledgerkit/web_dist/
+node_modules/
+
+# Local design references (third-party, not part of this project)
+awesome-design-md/
